@@ -1,0 +1,46 @@
+package Aplication;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
+
+import Entidades.Funcionario;
+
+public class Programa {
+
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		List<Object> lista = new ArrayList<>();
+		
+		Funcionario funcionario;
+		
+		System.out.print("Quantos funcionários serão registrados: ");
+		int qtde = sc.nextInt();
+		
+		for (int i = 1; i <= qtde; i++) {
+			
+			System.out.println("Funcionário Nº: " + i);
+			System.out.print("ID: ");
+			int id = sc.nextInt();
+			sc.nextLine();
+			
+			System.out.print("Nome: ");
+			String nome= sc.nextLine();
+			
+			System.out.print("Salário: ");
+			double salario = sc.nextDouble();
+			
+			funcionario = new Funcionario(id, nome, salario);
+			lista.add(funcionario);
+			
+		}
+		
+		
+		sc.close();
+
+	}
+
+}
