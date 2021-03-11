@@ -25,6 +25,7 @@ public class Program {
 			
 			System.out.print("Pessoa Física ou Jurídica [F/J]: ");
 			char pessoa = sc.next().toUpperCase().charAt(0);
+			System.out.println();
 			
 			while (pessoa != 'F' && pessoa != 'J') {
 				System.out.println("Opção Inválida");
@@ -34,10 +35,9 @@ public class Program {
 			}
 			
 			if (pessoa == 'F') {
-				
-				System.out.print("Nome: ");
-				String nome = sc.nextLine();
 				sc.nextLine();
+				System.out.print("Nome: ");
+				String nome = sc.nextLine();				
 				System.out.print("Renda Anual: ");				
 				double rendaAnual = sc.nextDouble();
 				System.out.print("Despesas Médicas: ");
@@ -48,9 +48,9 @@ public class Program {
 			}
 			
 			if (pessoa == 'J') {
-				System.out.print("Nome: ");
-				String nome = sc.nextLine();
 				sc.nextLine();
+				System.out.print("Nome: ");
+				String nome = sc.nextLine();				
 				System.out.print("Renda Anual: ");				
 				double rendaAnual = sc.nextDouble();
 				System.out.print("Número de funcionários: ");
