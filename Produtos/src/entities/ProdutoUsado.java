@@ -28,7 +28,7 @@ public class ProdutoUsado extends Produto{
 	
 	@Override
 	public String etiquetaPreco() {
-		return String.format("%s (usado) $ %.2f (Data de fabricação %s%n", super.getNome(), super.getPreco(), sdf.format(dataFabricacao) );
+		return String.format("%s (usado) $ %.2f (Data de fabricação %s", super.getNome(), super.getPreco(), sdf.format(dataFabricacao) );
 	}
 	
 	

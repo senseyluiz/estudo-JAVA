@@ -13,10 +13,12 @@ public class Produto {
 		this.preco = preco;
 	}
 	
+	
+
 	public String getNome() {
 		return nome;
 	}
-	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -30,6 +32,6 @@ public class Produto {
 	}
 	
 	public String etiquetaPreco() {
-		return String.format("%s $ %.2f%n", nome, preco);
+		return String.format("%s $ %.2f", nome, preco);
 	}
 }

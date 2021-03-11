@@ -25,6 +25,7 @@ public class Program {
 		int qtdeProdutos = sc.nextInt();
 		
 		for (int i = 1; i <= qtdeProdutos; i++) {
+			System.out.println();
 			System.out.println("Produto nº " + i);
 			System.out.print("Comum, Usado ou Importado [c/u/i]: ");
 			char resp = sc.next().toUpperCase().charAt(0);
@@ -36,11 +37,13 @@ public class Program {
 				resp = sc.next().toUpperCase().charAt(0);
 			}
 			
-			System.out.println();
+			
 			System.out.print("Nome: ");
-			String nome = sc.nextLine();
 			sc.nextLine();
+			String nome = sc.nextLine();
+			
 			System.out.print("Preço: ");
+			
 			double preco = sc.nextDouble();	
 			
 			
@@ -67,6 +70,7 @@ public class Program {
 		}
 		
 		for (Produto produto : list ) {
+			System.out.println();
 			System.out.println(produto.etiquetaPreco());
 		}
 		
