@@ -7,27 +7,24 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import model.endities.Reserva;
+import model.exceptions.DomainException;
 
 public class Program {
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
-		System.out.print("Room Numbe: ");
-		int number = sc.nextInt();
-		
-		System.out.print("Check-in date (dd/MM/yyyy): ");
-		Date checkIn = sdf.parse(sc.next());
-		
-		System.out.print("Check-out date (dd/MM/yyyy): ");
-		Date checkOut = sdf.parse(sc.next());
-		
-		if (!checkOut.after(checkIn)) {
-			System.out.println("Error in reservation: Check-out date must be after chec-in date.");
+		try {
+			System.out.print("Room Numbe: ");
+			int number = sc.nextInt();
 			
-		}else {
+			System.out.print("Check-in date (dd/MM/yyyy): ");
+			Date checkIn = sdf.parse(sc.next());
+			
+			System.out.print("Check-out date (dd/MM/yyyy): ");
+			Date checkOut = sdf.parse(sc.next());		
 			
 			Reserva reservation = new Reserva(number, checkIn, checkOut);
 			System.out.println("Reservation: " + reservation);
@@ -39,17 +36,22 @@ public class Program {
 			checkIn = sdf.parse(sc.next());
 			
 			System.out.print("Check-out date (dd/MM/yyyy): ");
-			checkOut = sdf.parse(sc.next());
+			checkOut = sdf.parse(sc.next());			
 			
+			reservation.updateDate(checkIn, checkOut);			
 			
-			String error = reservation.updateDate(checkIn, checkOut);
-			if (error != null) {
-				System.out.println("Error in reservation: " + error);
-			}
-			else {
-				System.out.println("Reservation: " + reservation);
-			}						
-		}		
+			System.out.println("Reservation: " + reservation);
+		}
+		
+		catch(ParseException e) {
+			System.out.println("Inválid date format.");
+		}
+		catch(DomainException e) {
+			System.out.println("Error in reservation: " + e.getMessage());
+		}
+		catch(RuntimeException e) {
+			System.out.println("Unexpected error");
+		}
 		
 		sc.close();
 
